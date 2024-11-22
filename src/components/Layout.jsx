@@ -50,6 +50,17 @@ export default function Layout({ children, name }) {
 
 	const location = useLocation();
 
+	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+	useEffect(() => {
+		const handleMouseMove = (e) => {
+			setMousePosition({ x: e.clientX, y: e.clientY });
+		};
+
+		window.addEventListener("mousemove", handleMouseMove);
+		return () => window.removeEventListener("mousemove", handleMouseMove);
+	}, []);
+
 	return (
 		<div className="min-h-screen flex flex-col">
 			<header className="fixed top-0 w-full bg-bg-primary border-b border-border-color backdrop-blur-sm z-50">
@@ -147,6 +158,14 @@ export default function Layout({ children, name }) {
 			>
 				{children}
 			</main>
+			<svg
+				className="fixed pointer-events-none dark:opacity-[0.3] opacity-[0.5] transition-all duration-100 ease-out rounded-full blur-2xl -z-50 size-36 animate-pulse"
+				style={{
+					transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) translate(-50%, -50%)`,
+				}}
+			>
+				<circle cx="72" cy="72" r="72" className="fill-primary" />
+			</svg>
 		</div>
 	);
 }
