@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		@apply m-0 p-0 box-border;
+	}
+	body {
+		@apply bg-[var(--bg-primary)] text-[var(--text-primary)] font-montserrat;
+	}
+	html {
+		@apply font-sans antialiased;
+	}
+	a {
+		@apply font-medium  no-underline hover:text-[#535bf2];
+	}
+	h1 {
+		@apply text-[3.2em] leading-[1.1];
+	}
+	button {
+		@apply rounded-lg border border-transparent px-[1.2em] py-[0.6em] text-base font-medium 
+		 bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s]
+		hover:border-[#646cff];
+	}
+}
+
+/* Custom CSS Variables */
+:root {
+	--primary: #2ea043;
+	--primary-hover: #3fb950;
+}
+
+.dark {
+	--bg-primary: #0d1117;
+	--bg-secondary: #161b22;
+	--text-primary: #c9d1d9;
+	--text-secondary: #8b949e;
+	--border-color: #30363d;
+}
+
+.light {
+	--bg-primary: #ffffff;
+	--bg-secondary: #f6f8fa;
+	--text-primary: #24292f;
+	--text-secondary: #57606a;
+	--border-color: #d0d7de;
+}
+
+/* Custom Components */
+@layer components {
+	.container {
+		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+	}
+	.section-title {
+		@apply text-4xl font-bold mb-8 text-center;
+	}
+	.card {
+		@apply bg-[var(--bg-secondary)] border border-[var(--border-color)];
+	}
+	.nav-link {
+		@apply text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors;
+	}
+	.btn {
+		@apply px-4 py-2 rounded-md font-medium transition-colors;
+	}
+	.btn-primary {
+		@apply bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white;
+	}
+	.btn-secondary {
+		@apply border border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)];
+	}
+}
+
+/* Transitions */
+* {
+	transition: all 0.3s ease-in-out, color 0s;
+}
+
+/* Media Queries */
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
+}
+
+/* Spotlight Effect */
+.spotlight {
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.spotlight:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		circle at var(--x, 50%) var(--y, 50%),
+		rgba(62, 214, 90, 0.15) 0%,
+		transparent 50%
+	);
+	opacity: 0;
+	transition: opacity 0.3s;
+	pointer-events: none;
+	border-radius: inherit;
+}
+
+.spotlight:after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity 0.3s;
+	pointer-events: none;
+	background: radial-gradient(
+		circle at var(--x, 50%) var(--y, 50%),
+		rgba(24, 112, 36, 0.75) 0%,
+		transparent 50%
+	);
+	mask: linear-gradient(#fff 0 0) top, linear-gradient(#fff 0 0) bottom,
+		linear-gradient(#fff 0 0) left, linear-gradient(#fff 0 0) right;
+	mask-size: 100% 5px, 100% 5px, 5px 100%, 5px 100%;
+	mask-position: top, bottom, left, right;
+	mask-repeat: no-repeat;
+	mask-image: linear-gradient(#fff 0 0) top, linear-gradient(#fff 0 0) bottom,
+		linear-gradient(#fff 0 0) left, linear-gradient(#fff 0 0) right;
+	border-radius: inherit;
+	mix-blend-mode: hard-light;
+}
+
+.spotlight:hover:before,
+.spotlight:hover:after {
+	opacity: 1;
+}
+
+#theme-toggle {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--text-primary);
+}
+
+#theme-toggle:hover {
+	color: var();
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: 3px solid var(--primary);
+	outline-offset: 3px;
+	border-radius: 8px;
+}
+
+*:focus-within,
+*:focus {
+	outline: none;
+}
+
+@media (max-width: 768px) {
+	.open {
+		display: flex;
+		opacity: 1;
+		translate: 0 0;
+		@starting-style {
+			translate: 100% 0;
+			opacity: 0;
+		}
+	}
+
+	.closed {
+		display: none;
+		opacity: 0;
+		transition: display 0.5s ease, opacity 0.5s ease;
+		transition-behavior: allow-discrete;
+	}
+}
+
+@media (min-width: 768px) {
+	.open {
+		transition: none;
+		filter: unset;
+	}
+
+	.closed {
+		transition: none;
+	}
+}
