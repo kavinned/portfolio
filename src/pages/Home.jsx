@@ -16,19 +16,23 @@ export default function Home({ name }) {
 	}, []);
 
 	return (
-		<div className="min-h-[calc(100vh-6rem)] flex items-center justify-center">
+		<div className="min-h-[calc(100vh-6rem)] flex items-center justify-center hero">
 			<div className="w-full">
 				{/* Hero Section */}
 				<motion.div
 					initial={{
 						opacity: 0,
-						y: winHeight,
-						scale: "90%",
+						y: winHeight / 4,
+						scale: "250%",
 					}}
 					animate={{ opacity: 1, y: 0, scale: "100%" }}
 					transition={{
 						duration: 1,
-						ease: [0.16, 1, 0.3, 1],
+						type: "spring",
+						stiffness: 100,
+						damping: 12,
+						ease: "easeInOut",
+						bounce: 0.5,
 					}}
 					className="max-w-2xl mx-auto text-center px-4 transition-none"
 				>
