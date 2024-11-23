@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiMapPin, FiLinkedin } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import Toast from "../components/Toast";
+import Loader from "../components/Loader";
 
 const contactInfo = [
 	{
@@ -27,8 +29,21 @@ const contactInfo = [
 export default function Contact() {
 	const [loading, setLoading] = useState(false);
 	const [formStatus, setFormStatus] = useState("");
+	const [showToast, setShowToast] = useState(false);
 
 	const form = useRef();
+
+	useEffect(() => {
+		if (formStatus) {
+			setShowToast(true);
+			const timer = setTimeout(() => {
+				setShowToast(false);
+				setFormStatus("");
+			}, 3000);
+			return () => clearTimeout(timer);
+		}
+	}, [formStatus]);
+
 	const handleSubmit = (e) => {
 		setLoading(true);
 		e.preventDefault();
@@ -38,13 +53,18 @@ export default function Contact() {
 			})
 			.then(
 				() => {
-					console.log("Email sent");
-					setFormStatus("Success, Email sent");
-					form.current.reset();
+					setFormStatus({
+						type: "success",
+						message: "Message sent successfully!",
+					});
+					// form.current.reset();
 				},
 				(error) => {
+					setFormStatus({
+						type: "error",
+						message: "Failed to send message",
+					});
 					console.log("Failed", error.text);
-					setFormStatus("Failed, Email not sent");
 				}
 			)
 			.finally(() => {
@@ -52,10 +72,16 @@ export default function Contact() {
 			});
 	};
 
-	console.log(formStatus);
-
 	return (
 		<div className="container py-20">
+			<AnimatePresence>
+				{showToast && formStatus && (
+					<Toast
+						message={formStatus.message}
+						type={formStatus.type}
+					/>
+				)}
+			</AnimatePresence>
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
@@ -128,7 +154,7 @@ export default function Contact() {
 									type="text"
 									id="name"
 									name="from_name"
-									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent ring-1 ring-gray-300"
+									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 "
 									required
 								/>
 							</div>
@@ -143,7 +169,7 @@ export default function Contact() {
 									type="email"
 									id="email"
 									name="from_email"
-									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent ring-1 ring-gray-300"
+									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 "
 									required
 								/>
 							</div>
@@ -158,17 +184,24 @@ export default function Contact() {
 									id="message"
 									name="message"
 									rows="4"
-									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent ring-1 ring-gray-300"
+									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 "
 									required
 								></textarea>
 							</div>
 							<motion.button
 								type="submit"
-								className="btn btn-primary w-full"
+								className="btn btn-primary w-full flex items-center justify-center gap-2"
 								whileHover={{ scale: 1.02 }}
 								whileTap={{ scale: 0.98 }}
+								disabled={loading}
 							>
-								Send Message
+								{loading ? (
+									<>
+										<Loader /> Sending...
+									</>
+								) : (
+									"Send Message"
+								)}
 							</motion.button>
 						</form>
 					</motion.div>
