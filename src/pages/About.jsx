@@ -1,16 +1,31 @@
 import { motion } from "framer-motion";
-import StackIcon from "tech-stack-icons";
+import {
+	SiCss3,
+	SiFramer,
+	SiHtml5,
+	SiTailwindcss,
+	SiJavascript,
+	SiReact,
+	SiNextdotjs,
+	SiNodedotjs,
+	SiExpress,
+	SiMongodb,
+} from "react-icons/si";
 
 const skills = [
-	{ name: "React", icon: "reactjs" },
-	{ name: "JavaScript", icon: "js" },
-	{ name: "Node.js", icon: "nodejs" },
-	{ name: "TypeScript", icon: "typescript" },
-	{ name: "CSS", icon: "css3" },
-	{ name: "SQL", icon: "mysql" },
+	{ name: "HTML", icon: <SiHtml5 /> },
+	{ name: "CSS", icon: <SiCss3 /> },
+	{ name: "Tailwind CSS", icon: <SiTailwindcss /> },
+	{ name: "Framer Motion", icon: <SiFramer /> },
+	{ name: "JavaScript", icon: <SiJavascript /> },
+	{ name: "React.js", icon: <SiReact /> },
+	{ name: "Next.js", icon: <SiNextdotjs /> },
+	{ name: "Node.js", icon: <SiNodedotjs /> },
+	{ name: "Express.js", icon: <SiExpress /> },
+	{ name: "MongoDB", icon: <SiMongodb /> },
 ];
 
-export default function About() {
+export default function About({ name }) {
 	return (
 		<div className="container pt-20">
 			<motion.div
@@ -27,7 +42,7 @@ export default function About() {
 				</motion.h2>
 
 				<div className="grid md:grid-cols-2 gap-12">
-					{/* Profile Image - First on mobile */}
+					{/* Profile Image */}
 					<motion.div
 						initial={{ opacity: 0, x: 20 }}
 						animate={{ opacity: 1, x: 0 }}
@@ -35,7 +50,7 @@ export default function About() {
 					>
 						<div className="w-64 h-64 rounded-full overflow-hidden bg-bg-secondary">
 							<img
-								src="https://via.placeholder.com/400x400"
+								src="src/assets/images/20240415_GA66.png"
 								alt="Profile"
 								className="w-full h-full object-cover"
 							/>
@@ -49,20 +64,15 @@ export default function About() {
 						className="space-y-4 md:order-1"
 					>
 						<h3 className="text-2xl font-semibold mb-4 font-montserrat">
-							Your Name
+							{name}
 						</h3>
 						<p className="text-text-secondary font-montserrat">
-							I&apos;m a passionate full-stack developer with a
-							love for creating beautiful and functional web
-							applications. With years of experience in modern web
-							technologies, I strive to build solutions that make
-							a difference.
-						</p>
-						<p className="text-text-secondary font-montserrat">
-							When I&apos;m not coding, you can find me exploring
-							new technologies, contributing to open-source
-							projects, or sharing my knowledge through technical
-							writing.
+							I&apos;m a web developer with a focus on the
+							front-end with some experience in the backend.
+							Originally from a different field, I have
+							transitioned to web development, where I&apos;ve
+							honed my skills in HTML, CSS, and JavaScript. I also
+							have experience with React, Node.js, and MongoDB.
 						</p>
 					</motion.div>
 
@@ -96,10 +106,7 @@ export default function About() {
 									className="card md:flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow p-[0.7rem] mb-4 break-inside-avoid w-auto h-auto"
 									key={idx}
 								>
-									<StackIcon
-										className="w-6 h-6"
-										name={skill.icon}
-									/>
+									{skill.icon}
 									<p>{skill.name}</p>
 								</motion.div>
 							))}
