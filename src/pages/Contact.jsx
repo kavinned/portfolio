@@ -48,16 +48,21 @@ export default function Contact() {
 		setLoading(true);
 		e.preventDefault();
 		emailjs
-			.sendForm("service_ph3zrh8", "template_m9mt309", form.current, {
-				publicKey: "PFIpQPfU-PDMVZGPw",
-			})
+			.sendForm(
+				import.meta.env.VITE_EMAILJS_SERVICE_ID,
+				import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+				form.current,
+				{
+					publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+				}
+			)
 			.then(
 				() => {
 					setFormStatus({
 						type: "success",
 						message: "Message sent successfully!",
 					});
-					// form.current.reset();
+					form.current.reset();
 				},
 				(error) => {
 					setFormStatus({
@@ -154,7 +159,7 @@ export default function Contact() {
 									type="text"
 									id="name"
 									name="from_name"
-									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 "
+									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent ring-1 ring-gray-300"
 									required
 								/>
 							</div>
@@ -169,7 +174,7 @@ export default function Contact() {
 									type="email"
 									id="email"
 									name="from_email"
-									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 "
+									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent ring-1 ring-gray-300"
 									required
 								/>
 							</div>
@@ -184,7 +189,7 @@ export default function Contact() {
 									id="message"
 									name="message"
 									rows="4"
-									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 "
+									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent ring-1 ring-gray-300"
 									required
 								></textarea>
 							</div>
