@@ -6,6 +6,7 @@ import { FiUsers, FiMail } from "react-icons/fi";
 
 export default function Layout({ children, name }) {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isClick, setIsClick] = useState(false);
 
 	const userTheme = localStorage.getItem("theme");
 	const systemTheme = window.matchMedia(
@@ -59,6 +60,17 @@ export default function Layout({ children, name }) {
 
 		window.addEventListener("mousemove", handleMouseMove);
 		return () => window.removeEventListener("mousemove", handleMouseMove);
+	}, []);
+
+	useEffect(() => {
+		const handleClick = () => {
+			setIsClick(true);
+			setTimeout(() => {
+				setIsClick(false);
+			}, 300);
+		};
+		document.addEventListener("click", handleClick);
+		return () => document.removeEventListener("click", handleClick);
 	}, []);
 
 	return (
@@ -164,7 +176,16 @@ export default function Layout({ children, name }) {
 					transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) translate(-50%, -50%)`,
 				}}
 			>
-				<circle cx="72" cy="72" r="72" className="fill-primary" />
+				<circle
+					cx="72"
+					cy="72"
+					r="72"
+					className={`fill-primary ${
+						isClick
+							? "fill-red-500 blur-3xl opacity-50"
+							: "fill-primary blur-none opacity-100"
+					}`}
+				/>
 			</svg>
 		</div>
 	);
