@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { FiMail, FiMapPin, FiLinkedin } from "react-icons/fi";
 
 const contactInfo = [
 	{
 		icon: FiMail,
 		label: "Email",
-		value: "your.email@example.com",
-		href: "mailto:your.email@example.com",
+		value: "kavin.ned@gmail.com",
+		href: "mailto:kavin.ned@gmail.com",
 	},
 	{
-		icon: FiPhone,
-		label: "Phone",
-		value: "+1 (234) 567-890",
-		href: "tel:+1234567890",
+		icon: FiLinkedin,
+		label: "LinkedIn",
+		value: "https://www.linkedin.com/in/kavin-nedumaran/",
+		href: "https://www.linkedin.com/in/kavin-nedumaran/",
 	},
+
 	{
 		icon: FiMapPin,
 		label: "Location",
-		value: "San Francisco, CA",
+		value: "Singapore",
 	},
 ];
 
 export default function Contact() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Add your form submission logic here
 	};
 
 	return (
