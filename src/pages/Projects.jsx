@@ -14,8 +14,18 @@ const projects = [
 	},
 	{
 		title: "EventBunny",
-		description:
-			"An event and task management app that users to plan events collaboratively. (This project was a collaborative effort with a team of 2 other people)",
+		description: (
+			<>
+				An event and task management app that users to plan events
+				collaboratively. <br />
+				<small className="text-[0.65rem]">
+					<em>
+						This project was a collaborative effort with a team of 2
+						others.
+					</em>
+				</small>
+			</>
+		),
 		tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
 		image: "/static/images/eventbunny.png",
 		link: "https://eventbunny.onrender.com/",
