@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FiMail, FiMapPin, FiLinkedin } from "react-icons/fi";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
 const contactInfo = [
 	{
@@ -23,9 +25,34 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+	const [loading, setLoading] = useState(false);
+	const [formStatus, setFormStatus] = useState("");
+
+	const form = useRef();
 	const handleSubmit = (e) => {
+		setLoading(true);
 		e.preventDefault();
+		emailjs
+			.sendForm("service_ph3zrh8", "template_m9mt309", form.current, {
+				publicKey: "PFIpQPfU-PDMVZGPw",
+			})
+			.then(
+				() => {
+					console.log("Email sent");
+					setFormStatus("Success, Email sent");
+					form.current.reset();
+				},
+				(error) => {
+					console.log("Failed", error.text);
+					setFormStatus("Failed, Email not sent");
+				}
+			)
+			.finally(() => {
+				setLoading(false);
+			});
 	};
+
+	console.log(formStatus);
 
 	return (
 		<div className="container py-20">
@@ -85,7 +112,11 @@ export default function Contact() {
 						transition={{ delay: 0.4 }}
 						className="w-[75vw] px-10 md:w-1/2"
 					>
-						<form onSubmit={handleSubmit} className="space-y-4">
+						<form
+							ref={form}
+							onSubmit={handleSubmit}
+							className="space-y-4"
+						>
 							<div>
 								<label
 									htmlFor="name"
@@ -96,7 +127,7 @@ export default function Contact() {
 								<input
 									type="text"
 									id="name"
-									name="name"
+									name="from_name"
 									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent ring-1 ring-gray-300"
 									required
 								/>
@@ -111,7 +142,7 @@ export default function Contact() {
 								<input
 									type="email"
 									id="email"
-									name="email"
+									name="from_email"
 									className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-transparent ring-1 ring-gray-300"
 									required
 								/>
