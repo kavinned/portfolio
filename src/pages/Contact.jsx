@@ -15,7 +15,7 @@ const contactInfo = [
 	{
 		icon: FiLinkedin,
 		label: "LinkedIn",
-		value: "https://www.linkedin.com/in/kavin-nedumaran/",
+		value: "Kavin Nedumaran",
 		href: "https://www.linkedin.com/in/kavin-nedumaran/",
 	},
 
@@ -108,7 +108,7 @@ export default function Contact() {
 						transition={{ delay: 0.2 }}
 						className="space-y-6 w-fit"
 					>
-						<h3 className="text-2xl font-semibold mb-4">
+						<h3 className="text-2xl font-semibold mb-4 text-center">
 							Contact Information
 						</h3>
 						{contactInfo.map((item) => (
