@@ -1,61 +1,43 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { FiGithub } from "react-icons/fi";
 import { useEffect, useRef } from "react";
 
 const projects = [
 	{
-		title: "E-commerce Platform",
+		title: "WealthWatch",
 		description:
-			"A modern e-commerce platform built with Next.js and Stripe integration",
-		tech: ["Next.js", "React", "Stripe", "Tailwind CSS"],
-		image: "https://via.placeholder.com/600x400",
-		link: "https://github.com",
-		github: "/github/ecommerce-platform",
+			"An app that allows users to track their monthly budgets and additionally track stocks too.",
+		tech: ["Next.js", "Next-Auth", "MongoDB", "Tailwind CSS", "Chart.js"],
+		image: "src/assets/images/wealthwatch.png",
+		link: "https://p4-wealthwatch.vercel.app/",
+		github: "https://github.com/kavinned/wealthwatch",
 	},
 	{
-		title: "Task Management App",
+		title: "EventBunny",
 		description:
-			"A collaborative task management tool with real-time updates",
-		tech: ["React", "Firebase", "Material-UI", "Redux"],
-		image: "https://via.placeholder.com/600x400",
-		link: "https://github.com",
-		github: "/github/task-manager",
+			"An event and task management app that users to plan events collaboratively. (This project was a collaborative effort with a team of 2 other people)",
+		tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+		image: "src/assets/images/eventbunny.png",
+		link: "https://eventbunny.onrender.com/",
+		github: "https://github.com/kavinned/eventbunny",
 	},
 	{
-		title: "AI Image Generator",
-		description: "An AI-powered image generation tool using DALL-E API",
-		tech: ["Vue.js", "OpenAI API", "Node.js", "Express"],
-		image: "https://via.placeholder.com/600x400",
-		link: "https://github.com",
-		github: "/github/ai-image-gen",
+		title: "PokéDB",
+		description:
+			"A Pokémon database app that allows users to search and view information about different Pokémon.",
+		tech: ["React.js", "CSS3", "Airtable"],
+		image: "src/assets/images/pokedb.png",
+		link: "https://p2-poke-db.vercel.app/",
+		github: "https://github.com/kavinned/pokedb",
 	},
 	{
-		title: "Social Media Dashboard",
+		title: "Flappy Bird Clone",
 		description:
-			"A comprehensive analytics dashboard for social media management",
-		tech: ["React", "D3.js", "Node.js", "MongoDB"],
-		image: "https://via.placeholder.com/600x400",
-		link: "https://github.com",
-		github: "/github/social-dashboard",
-	},
-	{
-		title: "Weather App",
-		description:
-			"A beautiful weather application with animated visualizations",
-		tech: ["React", "OpenWeather API", "Framer Motion"],
-		image: "https://via.placeholder.com/600x400",
-		link: "https://github.com",
-		github: "/github/weather-app",
-	},
-	{
-		title: "Portfolio Website",
-		description:
-			"A modern portfolio website built with React and Framer Motion",
-		tech: ["React", "Tailwind CSS", "Framer Motion"],
-		image: "https://via.placeholder.com/600x400",
-		link: "https://github.com",
-		github: "/github/portfolio",
+			"A clone of the classic game Flappy Bird using React.js and Framer Motion.",
+		tech: ["HTML5", "CSS3", "JavaScript"],
+		image: "src/assets/images/flappybird.png",
+		link: "https://p1-flappy-bird.vercel.app/",
+		github: "https://github.com/kavinned/flappy-bird-clone",
 	},
 ];
 
@@ -97,43 +79,49 @@ function ProjectCard({ project }) {
 		<motion.div
 			ref={cardRef}
 			variants={item}
-			className="spotlight card bg-[var(--bg-secondary)] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+			className="spotlight card bg-[var(--bg-secondary)] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col"
 		>
 			<img
 				src={project.image}
 				alt={project.title}
-				className="w-full h-48 object-cover"
+				className="object-cover"
+				width={600}
+				height={400}
 			/>
-			<div className="p-6">
+			<div className="p-6 flex flex-col flex-grow">
 				<h3 className="text-xl font-semibold mb-2">{project.title}</h3>
 				<p className="text-gray-600 dark:text-gray-300 mb-4">
 					{project.description}
 				</p>
-				<div className="flex flex-wrap gap-2 mb-4">
-					{project.tech.map((tech, i) => (
-						<span
-							key={i}
-							className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
+				<div className="mt-auto">
+					<div className="flex flex-wrap gap-2 mb-4">
+						{project.tech.map((tech, i) => (
+							<span
+								key={i}
+								className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
+							>
+								{tech}
+							</span>
+						))}
+					</div>
+					<div className="flex gap-4 items-center">
+						<a
+							href={project.link}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="btn btn-primary flex-1 text-center"
 						>
-							{tech}
-						</span>
-					))}
-				</div>
-				<div className="flex gap-4 items-center">
-					<a
-						href={project.link}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="btn btn-primary flex-1 text-center"
-					>
-						View Project
-					</a>
-					<Link
-						to={project.github}
-						className="text-2xl hover:text-primary transition-colors"
-					>
-						<FiGithub />
-					</Link>
+							View Project
+						</a>
+						<a
+							href={project.github}
+							className="text-2xl hover:text-primary transition-colors"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<FiGithub />
+						</a>
+					</div>
 				</div>
 			</div>
 		</motion.div>
