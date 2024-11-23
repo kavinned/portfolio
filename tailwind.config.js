@@ -13,9 +13,6 @@ export default {
 				"text-secondary": "var(--text-secondary)",
 				"border-color": "var(--border-color)",
 			},
-			fontFamily: {
-				montserrat: ["Montserrat", "sans-serif"],
-			},
 		},
 	},
 	plugins: [],

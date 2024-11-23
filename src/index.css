@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	font-family: "Montserrat", sans-serif;
+}
+
 html {
 	scrollbar-width: none;
 }
@@ -12,7 +16,7 @@ html {
 		@apply m-0 p-0 box-border;
 	}
 	body {
-		@apply bg-[var(--bg-primary)] text-[var(--text-primary)] font-montserrat;
+		@apply bg-[var(--bg-primary)] text-[var(--text-primary)];
 	}
 	html {
 		@apply font-sans antialiased;

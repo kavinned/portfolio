@@ -36,7 +36,7 @@ export default function About({ name }) {
 				<motion.h2
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
-					className="section-title font-montserrat"
+					className="section-title"
 				>
 					About Me
 				</motion.h2>
@@ -63,10 +63,8 @@ export default function About({ name }) {
 						animate={{ opacity: 1, x: 0 }}
 						className="space-y-4 md:order-1"
 					>
-						<h3 className="text-2xl font-semibold mb-4 font-montserrat">
-							{name}
-						</h3>
-						<p className="text-text-secondary font-montserrat">
+						<h3 className="text-2xl font-semibold mb-4">{name}</h3>
+						<p className="text-text-secondary">
 							I&apos;m a web developer with a focus on the
 							front-end with some experience in the backend.
 							Originally from a different field, I have
@@ -82,9 +80,7 @@ export default function About({ name }) {
 						animate={{ opacity: 1, y: 0 }}
 						className="md:col-span-2 space-y-4 md:order-3"
 					>
-						<h3 className="text-2xl font-semibold mb-4 font-montserrat">
-							Skills
-						</h3>
+						<h3 className="text-2xl font-semibold mb-4">Skills</h3>
 						<div className="md:flex flex-wrap grid grid-cols-3 gap-4">
 							{skills.map((skill, idx) => (
 								<motion.div
@@ -113,10 +109,10 @@ export default function About({ name }) {
 							{/* {skills.map((skill, index) => (
 								<div key={skill.name}>
 									<div className="flex justify-between mb-1">
-										<span className="font-medium font-montserrat">
+										<span className="font-medium">
 											{skill.name}
 										</span>
-										<span className="text-text-secondary font-montserrat">
+										<span className="text-text-secondary">
 											{skill.level}%
 										</span>
 									</div>
