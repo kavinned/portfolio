@@ -69,7 +69,7 @@ export default function Layout({ children, name }) {
 								ref={menuRef}
 								className={`${
 									isOpen ? "open" : "closed"
-								} md:static md:border-none flex flex-col items-start absolute top-full left-0 w-full md:bg-transparent md:dark:bg-transparent bg-gray-200 dark:bg-[#141a23] border-t border-b border-border-color md:items-center justify-center md:space-x-6 md:flex-row md:shadow-none shadow-lg dark:shadow-slate-800 shadow-gray-400`}
+								} md:static md:border-none flex flex-col items-start absolute top-full left-0 w-full md:bg-transparent md:dark:bg-transparent bg-gray-200 dark:bg-[#141a23] border-t border-b border-border-color md:items-center justify-center md:space-x-6 md:flex-row md:shadow-none shadow-md dark:shadow-[#161d28] shadow-gray-400 ml-5 mt-5 md:ml-0 md:mt-0 rounded-xl md:rounded-none`}
 							>
 								<Link
 									to="/about"
@@ -142,7 +142,7 @@ export default function Layout({ children, name }) {
 			<main
 				className={`${
 					isOpen
-						? "blur-md md:blur-none -backdrop-hue-rotate-30 md:hue-rotate-0"
+						? "blur-md md:blur-none -backdrop-hue-rotate-15 md:hue-rotate-0"
 						: ""
 				} flex-grow pt-20`}
 			>

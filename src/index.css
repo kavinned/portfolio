@@ -201,20 +201,17 @@ button:focus-visible {
 
 @media (max-width: 768px) {
 	.open {
-		display: flex;
+		visibility: visible;
 		opacity: 1;
-		translate: 0 0;
-		@starting-style {
-			translate: 100% 0;
-			opacity: 0;
-		}
+		transform: translateX(0);
+		transition: all 0.3s ease-in-out;
 	}
 
 	.closed {
-		display: none;
+		visibility: hidden;
 		opacity: 0;
-		transition: display 0.5s ease, opacity 0.5s ease;
-		transition-behavior: allow-discrete;
+		transform: translateX(100%);
+		transition: all 0.3s ease-in-out, visibility 0s linear 0.3s;
 	}
 }
 
