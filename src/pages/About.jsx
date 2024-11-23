@@ -48,7 +48,7 @@ export default function About({ name }) {
 						animate={{ opacity: 1, x: 0 }}
 						className="flex justify-center items-center md:order-2"
 					>
-						<div className="w-64 h-64 rounded-full overflow-hidden bg-bg-secondary">
+						<div className="w-64 h-64 rounded-full overflow-hidden bg-bg-secondary mypic">
 							<img
 								src="src/assets/images/20240415_GA66.png"
 								alt="Profile"

@@ -217,3 +217,7 @@ button:focus-visible {
 		transition-behavior: allow-discrete;
 	}
 }
+
+.mypic {
+	filter: drop-shadow(0px 0px 20px rgba(56, 187, 87, 0.25));
+}
