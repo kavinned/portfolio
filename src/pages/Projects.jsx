@@ -8,7 +8,7 @@ const projects = [
 		description:
 			"An app that allows users to track their monthly budgets and additionally track stocks too.",
 		tech: ["Next.js", "Next-Auth", "MongoDB", "Tailwind CSS", "Chart.js"],
-		image: "src/assets/images/wealthwatch.png",
+		image: "/static/images/wealthwatch.png",
 		link: "https://p4-wealthwatch.vercel.app/",
 		github: "https://github.com/kavinned/wealthwatch",
 	},
@@ -17,7 +17,7 @@ const projects = [
 		description:
 			"An event and task management app that users to plan events collaboratively. (This project was a collaborative effort with a team of 2 other people)",
 		tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
-		image: "src/assets/images/eventbunny.png",
+		image: "/static/images/eventbunny.png",
 		link: "https://eventbunny.onrender.com/",
 		github: "https://github.com/kavinned/eventbunny",
 	},
@@ -26,7 +26,7 @@ const projects = [
 		description:
 			"A Pokémon database app that allows users to search and view information about different Pokémon.",
 		tech: ["React.js", "CSS3", "Airtable"],
-		image: "src/assets/images/pokedb.png",
+		image: "/static/images/pokedb.png",
 		link: "https://p2-poke-db.vercel.app/",
 		github: "https://github.com/kavinned/pokedb",
 	},
@@ -35,7 +35,7 @@ const projects = [
 		description:
 			"A clone of the classic game Flappy Bird using React.js and Framer Motion.",
 		tech: ["HTML5", "CSS3", "JavaScript"],
-		image: "src/assets/images/flappybird.png",
+		image: "/static/images/flappybird.png",
 		link: "https://p1-flappy-bird.vercel.app/",
 		github: "https://github.com/kavinned/flappy-bird-clone",
 	},

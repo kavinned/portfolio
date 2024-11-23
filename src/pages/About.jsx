@@ -50,7 +50,7 @@ export default function About({ name }) {
 					>
 						<div className="w-64 h-64 rounded-full overflow-hidden bg-bg-secondary mypic">
 							<img
-								src="src/assets/images/20240415_GA66.png"
+								src="/static/images/20240415_GA66.png"
 								alt="Profile"
 								className="w-full h-full object-cover"
 							/>
