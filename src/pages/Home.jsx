@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SocialLinks from "../components/SocialLinks";
 import { useState, useEffect } from "react";
+import { FiMapPin } from "react-icons/fi";
 
 export default function Home({ name }) {
 	const winHeight = window.innerHeight / 3;
@@ -86,8 +87,8 @@ export default function Home({ name }) {
 						</span>
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-						A passionate developer creating beautiful and functional
-						web experiences
+						A developer with a passion for creating beautiful and
+						functional web experiences.
 					</p>
 					<div className="flex gap-4 justify-center">
 						<Link to="/contact" className="btn btn-primary">
@@ -104,6 +105,18 @@ export default function Home({ name }) {
 				<SocialLinks className="fixed left-8 bottom-8 hidden md:flex flex-col gap-4" />
 				{/* Mobile Social Links */}
 				<SocialLinks className="flex md:hidden justify-center gap-6 mt-12" />
+				<motion.div
+					animate={{ opacity: 1, x: 0 }}
+					initial={{ opacity: 0, x: 200 }}
+					transition={{
+						duration: 0.5,
+						ease: "easeInOut",
+					}}
+					className="fixed right-8 bottom-8 flex items-center gap-2 text-sm"
+				>
+					<FiMapPin className="text-gray-500 dark:text-gray-400" />
+					<span>Singapore</span>
+				</motion.div>
 			</div>
 		</div>
 	);
