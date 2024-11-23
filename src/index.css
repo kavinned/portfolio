@@ -52,6 +52,7 @@
 	--border-color: #d0d7de;
 }
 
+/* Animations */
 .animate-pulse {
 	animation: pulse 3s infinite ease-in-out;
 }
@@ -157,6 +158,7 @@
 	opacity: 1;
 }
 
+/* Theme Toggle Button */
 #theme-toggle {
 	background: none;
 	border: none;
@@ -168,6 +170,7 @@
 	color: var();
 }
 
+/* Focus Styles */
 a:focus-visible,
 button:focus-visible {
 	outline: 3px solid var(--primary);
@@ -178,6 +181,18 @@ button:focus-visible {
 *:focus-within,
 *:focus {
 	outline: none;
+}
+
+/* Mobile Navigation */
+@media (min-width: 768px) {
+	.open {
+		transition: none;
+		filter: unset;
+	}
+
+	.closed {
+		transition: none;
+	}
 }
 
 @media (max-width: 768px) {
@@ -197,19 +212,4 @@ button:focus-visible {
 		transition: display 0.5s ease, opacity 0.5s ease;
 		transition-behavior: allow-discrete;
 	}
-}
-
-@media (min-width: 768px) {
-	.open {
-		transition: none;
-		filter: unset;
-	}
-
-	.closed {
-		transition: none;
-	}
-}
-
-html {
-	scrollbar-width: none;
 }
