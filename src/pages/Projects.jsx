@@ -42,8 +42,7 @@ const projects = [
 	},
 	{
 		title: "Flappy Bird Clone",
-		description:
-			"A clone of the classic game Flappy Bird using React.js and Framer Motion.",
+		description: "A clone of the classic game Flappy Bird.",
 		tech: ["HTML5", "CSS3", "JavaScript"],
 		image: "/static/images/flappybird.png",
 		link: "https://p1-flappy-bird.vercel.app/",
