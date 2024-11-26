@@ -148,17 +148,14 @@ html {
 	background: radial-gradient(
 		circle at var(--x, 50%) var(--y, 50%),
 		rgba(24, 112, 36, 0.75) 0%,
-		transparent 50%
+		transparent 30%
 	);
-	mask: linear-gradient(#fff 0 0) top, linear-gradient(#fff 0 0) bottom,
-		linear-gradient(#fff 0 0) left, linear-gradient(#fff 0 0) right;
-	mask-size: 100% 5px, 100% 5px, 5px 100%, 5px 100%;
-	mask-position: top, bottom, left, right;
-	mask-repeat: no-repeat;
-	mask-image: linear-gradient(#fff 0 0) top, linear-gradient(#fff 0 0) bottom,
-		linear-gradient(#fff 0 0) left, linear-gradient(#fff 0 0) right;
+	mask: linear-gradient(#fff 0 0) top / 100% 5px no-repeat,
+		linear-gradient(#fff 0 0) bottom / 100% 5px no-repeat,
+		linear-gradient(#fff 0 0) left / 5px 100% no-repeat,
+		linear-gradient(#fff 0 0) right / 5px 100% no-repeat;
 	border-radius: inherit;
-	mix-blend-mode: hard-light;
+	mix-blend-mode: color-burn;
 }
 
 .spotlight:hover:before,
