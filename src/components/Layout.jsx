@@ -4,6 +4,7 @@ import { FiSun, FiMoon, FiBriefcase } from "react-icons/fi";
 import { CiMenuKebab } from "react-icons/ci";
 import { FiUsers, FiMail } from "react-icons/fi";
 import CustomCursor from "./CustomCursor";
+import { motion } from "framer-motion";
 
 export default function Layout({ children, name }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +56,16 @@ export default function Layout({ children, name }) {
 		<div className="min-h-screen flex flex-col">
 			<header className="fixed top-0 w-full bg-bg-primary border-b border-border-color backdrop-blur-sm z-50">
 				<nav className="container py-4">
-					<div className="flex items-center justify-between">
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{
+							duration: 1,
+							delay: 0.35,
+							ease: "easeInOut",
+						}}
+						className="flex items-center justify-between"
+					>
 						{/* Website Name */}
 						<Link
 							to="/"
@@ -135,7 +145,7 @@ export default function Layout({ children, name }) {
 								<CiMenuKebab className="text-2xl" />
 							</button>
 						</div>
-					</div>
+					</motion.div>
 				</nav>
 			</header>
 
