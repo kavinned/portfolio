@@ -90,17 +90,29 @@ export default function Home({ name }) {
 						A developer with a passion for creating beautiful and
 						functional web experiences.
 					</p>
-					<div className="flex gap-4 justify-center">
-						<Link to="/contact" className="btn btn-primary">
+					<motion.div
+						initial={{ opacity: 0.5, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{
+							duration: 0.5,
+							delay: 0.5,
+							ease: "linear",
+						}}
+						className="flex gap-6 justify-center"
+					>
+						<Link to="/contact" className="btn btn-secondary">
 							Get in touch
 						</Link>
 						<Link
-							to="/projects"
-							className="btn bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700"
+							to="/about"
+							className="btn btn-primary scale-[1.15] "
 						>
+							About Me
+						</Link>
+						<Link to="/projects" className="btn btn-secondary">
 							View my work
 						</Link>
-					</div>
+					</motion.div>
 				</motion.div>
 				<SocialLinks className="fixed left-8 bottom-8 hidden md:flex flex-col gap-4" />
 				{/* Mobile Social Links */}
