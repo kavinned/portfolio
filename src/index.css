@@ -96,7 +96,7 @@ html {
 		@apply bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white;
 	}
 	.btn-secondary {
-		@apply border border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)];
+		@apply bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700;
 	}
 }
 
