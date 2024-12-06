@@ -10,19 +10,27 @@ import {
 	SiNodedotjs,
 	SiExpress,
 	SiMongodb,
+	SiReactrouter,
+	SiRedux,
+	SiVite,
+	SiGit,
 } from "react-icons/si";
 
 const skills = [
 	{ name: "HTML", icon: <SiHtml5 /> },
 	{ name: "CSS", icon: <SiCss3 /> },
-	{ name: "Tailwind CSS", icon: <SiTailwindcss /> },
-	{ name: "Framer Motion", icon: <SiFramer /> },
 	{ name: "JavaScript", icon: <SiJavascript /> },
 	{ name: "React.js", icon: <SiReact /> },
+	{ name: "React-Router", icon: <SiReactrouter /> },
+	{ name: "Redux", icon: <SiRedux /> },
 	{ name: "Next.js", icon: <SiNextdotjs /> },
 	{ name: "Node.js", icon: <SiNodedotjs /> },
 	{ name: "Express.js", icon: <SiExpress /> },
 	{ name: "MongoDB", icon: <SiMongodb /> },
+	{ name: "Tailwind CSS", icon: <SiTailwindcss /> },
+	{ name: "Framer Motion", icon: <SiFramer /> },
+	{ name: "Vite", icon: <SiVite /> },
+	{ name: "Git", icon: <SiGit /> },
 ];
 
 export default function About({ name }) {
@@ -81,7 +89,7 @@ export default function About({ name }) {
 						className="md:col-span-2 space-y-4 md:order-3"
 					>
 						<h3 className="text-2xl font-semibold mb-4">Skills</h3>
-						<div className="md:flex flex-wrap grid grid-cols-3 gap-4">
+						<div className="md:flex flex-wrap grid grid-cols-3 gap-4 ">
 							{skills.map((skill, idx) => (
 								<motion.div
 									initial={{
@@ -103,7 +111,9 @@ export default function About({ name }) {
 									key={idx}
 								>
 									{skill.icon}
-									<p>{skill.name}</p>
+									<p className="text-xs md:text-base">
+										{skill.name}
+									</p>
 								</motion.div>
 							))}
 							{/* {skills.map((skill, index) => (
