@@ -26,7 +26,14 @@ const projects = [
 				</small>
 			</>
 		),
-		tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+		tech: [
+			"React.js",
+			"Tailwind CSS",
+			"Node.js",
+			"Express.js",
+			"MongoDB",
+			"React-Router",
+		],
 		image: "/static/images/eventbunny.png",
 		link: "https://eventbunny.onrender.com/",
 		github: "https://github.com/kavinned/eventbunny",
@@ -35,7 +42,7 @@ const projects = [
 		title: "PokéDB",
 		description:
 			"A Pokémon database app that allows users to search and view information about different Pokémon.",
-		tech: ["React.js", "CSS3", "Airtable"],
+		tech: ["React.js", "CSS3", "Airtable", "React-Router"],
 		image: "/static/images/pokedb.png",
 		link: "https://p2-poke-db.vercel.app/",
 		github: "https://github.com/kavinned/pokedb",
