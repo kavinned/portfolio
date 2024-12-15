@@ -4,228 +4,234 @@
 @tailwind utilities;
 
 body {
-	font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 html {
-	scrollbar-width: none;
+    scrollbar-width: none;
+    interpolate-size: allow-keywords;
 }
 
 @layer base {
-	* {
-		@apply m-0 p-0 box-border;
-	}
-	body {
-		@apply bg-[var(--bg-primary)] text-[var(--text-primary)];
-	}
-	html {
-		@apply font-sans antialiased;
-	}
-	a {
-		@apply font-medium  no-underline hover:text-[#535bf2];
-	}
-	h1 {
-		@apply text-[3.2em] leading-[1.1];
-	}
-	button {
-		@apply rounded-lg border border-transparent px-[1.2em] py-[0.6em] text-base font-medium 
+    * {
+        @apply m-0 p-0 box-border;
+    }
+    body {
+        @apply bg-[var(--bg-primary)] text-[var(--text-primary)];
+    }
+    html {
+        @apply font-sans antialiased;
+    }
+    a {
+        @apply font-medium  no-underline hover:text-[#535bf2];
+    }
+    h1 {
+        @apply text-[3.2em] leading-[1.1];
+    }
+    button {
+        @apply rounded-lg border border-transparent px-[1.2em] py-[0.6em] text-base font-medium 
 		 bg-[#1a1a1a] cursor-pointer transition-[border-color] duration-[0.25s]
 		hover:border-[#646cff];
-	}
+    }
 }
 
 /* Custom CSS Variables */
 :root {
-	--primary: #2ea043;
-	--primary-hover: #3fb950;
-	--pulse-max: 0.35;
-	--pulse-min: 0.3;
+    --primary: #2ea043;
+    --primary-hover: #3fb950;
+    --pulse-max: 0.35;
+    --pulse-min: 0.3;
 }
 
 .dark {
-	--bg-primary: #0d1117;
-	--bg-secondary: #161b22;
-	--text-primary: #c9d1d9;
-	--text-secondary: #8b949e;
-	--border-color: #30363d;
-	--pulse-max: 0.15;
-	--pulse-min: 0.1;
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --border-color: #30363d;
+    --pulse-max: 0.15;
+    --pulse-min: 0.1;
 }
 
 .light {
-	--bg-primary: #ffffff;
-	--bg-secondary: #f6f8fa;
-	--text-primary: #24292f;
-	--text-secondary: #57606a;
-	--border-color: #d0d7de;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f6f8fa;
+    --text-primary: #24292f;
+    --text-secondary: #57606a;
+    --border-color: #d0d7de;
 }
 
 /* Animations */
 .animate-pulse {
-	animation: pulse 3s infinite ease-in-out;
+    animation: pulse 3s infinite ease-in-out;
 }
 
 @keyframes pulse {
-	0%,
-	100% {
-		opacity: var(--pulse-max, 0.35);
-	}
-	50% {
-		opacity: var(--pulse-min, 0.15);
-	}
+    0%,
+    100% {
+        opacity: var(--pulse-max, 0.35);
+    }
+    50% {
+        opacity: var(--pulse-min, 0.15);
+    }
 }
 
 /* Custom Components */
 @layer components {
-	.container {
-		@apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-	}
-	.section-title {
-		@apply text-4xl font-bold mb-8 text-center;
-	}
-	.card {
-		@apply bg-[var(--bg-secondary)] border border-[var(--border-color)];
-	}
-	.nav-link {
-		@apply text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors;
-	}
-	.btn {
-		@apply px-4 py-2 rounded-md font-medium transition-colors;
-	}
-	.btn-primary {
-		@apply bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white;
-	}
-	.btn-secondary {
-		@apply bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700;
-	}
+    .container {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+    .section-title {
+        @apply text-4xl font-bold mb-8 text-center;
+    }
+    .card {
+        @apply bg-[var(--bg-secondary)] border border-[var(--border-color)];
+    }
+    .nav-link {
+        @apply text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors;
+    }
+    .btn {
+        @apply px-4 py-2 rounded-md font-medium transition-colors;
+    }
+    .btn-primary {
+        @apply bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white;
+    }
+    .btn-secondary {
+        @apply bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700;
+    }
 }
 
 /* Transitions */
 * {
-	transition: all 0.3s ease-in-out, color 0s;
+    transition: all 0.3s ease-in-out, color 0s;
 }
 
 /* Media Queries */
 @media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
 }
 
 /* Spotlight Effect */
 .spotlight {
-	position: relative;
-	overflow: hidden;
-	border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .spotlight:before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: radial-gradient(
-		circle at var(--x, 50%) var(--y, 50%),
-		rgba(62, 214, 90, 0.15) 0%,
-		transparent 50%
-	);
-	opacity: 0;
-	transition: opacity 0.3s;
-	pointer-events: none;
-	border-radius: inherit;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(62, 214, 90, 0.15) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border-radius: inherit;
 }
 
 .spotlight:after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	opacity: 0;
-	transition: opacity 0.3s;
-	pointer-events: none;
-	background: radial-gradient(
-		circle at var(--x, 50%) var(--y, 50%),
-		rgba(24, 112, 36, 0.75) 0%,
-		transparent 30%
-	);
-	mask: linear-gradient(#fff 0 0) top / 100% 5px no-repeat,
-		linear-gradient(#fff 0 0) bottom / 100% 5px no-repeat,
-		linear-gradient(#fff 0 0) left / 5px 100% no-repeat,
-		linear-gradient(#fff 0 0) right / 5px 100% no-repeat;
-	border-radius: inherit;
-	mix-blend-mode: color-burn;
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%),
+        rgba(24, 112, 36, 0.75) 0%,
+        transparent 30%
+    );
+    mask: linear-gradient(#fff 0 0) top / 100% 5px no-repeat,
+        linear-gradient(#fff 0 0) bottom / 100% 5px no-repeat,
+        linear-gradient(#fff 0 0) left / 5px 100% no-repeat,
+        linear-gradient(#fff 0 0) right / 5px 100% no-repeat;
+    border-radius: inherit;
+    mix-blend-mode: color-burn;
 }
 
 .spotlight:hover:before,
 .spotlight:hover:after {
-	opacity: 1;
+    opacity: 1;
 }
 
 /* Theme Toggle Button */
 #theme-toggle {
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: var(--text-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
 }
 
 #theme-toggle:hover {
-	color: var();
+    color: var();
 }
 
 /* Focus Styles */
 a:focus-visible,
 button:focus-visible {
-	outline: 3px solid var(--primary);
-	outline-offset: 3px;
-	border-radius: 8px;
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 8px;
 }
 
 *:focus-within,
 *:focus {
-	outline: none;
+    outline: none;
 }
 
 /* Mobile Navigation */
 @media (min-width: 768px) {
-	.open {
-		transition: none;
-		filter: unset;
-	}
+    .open {
+        transition: none;
+        filter: unset;
+    }
 
-	.closed {
-		transition: none;
-	}
+    .closed {
+        transition: none;
+    }
 }
 
 @media (max-width: 768px) {
-	.open {
-		visibility: visible;
-		opacity: 1;
-		transform: translateX(0);
-		transition: all 0.3s ease-in-out;
-	}
+    .open {
+        visibility: visible;
+        opacity: 1;
+        width: 100%;
+        @starting-style {
+            height: 0px;
+        }
+        transition: all 0.6s ease-in-out, height 0.3s linear;
+        overflow: clip;
+    }
 
-	.closed {
-		visibility: hidden;
-		opacity: 0;
-		transform: translateX(100%);
-		transition: all 0.3s ease-in-out, visibility 0s linear 0.3s;
-	}
+    .closed {
+        visibility: hidden;
+        opacity: 0;
+        height: 0px;
+        transition: all 0.3s ease-in-out;
+        overflow: clip;
+    }
 }
 
 .mypic {
-	transition: transform 0.3s ease-out;
-	transform-style: preserve-3d;
-	filter: drop-shadow(0px 0px 20px rgba(56, 187, 87, 0.25));
-	transition: 0.5s all;
+    transition: transform 0.3s ease-out;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0px 0px 20px rgba(56, 187, 87, 0.25));
+    transition: 0.5s all;
 }
 
 .mypic:hover {
-	filter: drop-shadow(0px 0px 20px rgba(56, 187, 87, 0.5));
-	transform: perspective(800px) rotateY(-15deg) translateZ(50px);
-	scale: 1.2;
-	transition: 0.5s all;
+    filter: drop-shadow(0px 0px 20px rgba(56, 187, 87, 0.5));
+    transform: perspective(800px) rotateY(-15deg) translateZ(50px);
+    scale: 1.2;
+    transition: 0.5s all;
 }
