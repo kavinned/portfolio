@@ -61,6 +61,7 @@ export default function About({ name }) {
                                 src="/static/images/20240415_GA66.png"
                                 alt="Profile"
                                 className="w-full h-full object-cover my-pic"
+                                loading="lazy"
                             />
                         </div>
                     </motion.div>
