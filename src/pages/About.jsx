@@ -60,7 +60,14 @@ export default function About({ name }) {
                             <img
                                 src="/static/images/20240415_GA66.png"
                                 alt="Profile"
-                                loading="eager"
+                                style={{ visibility: "hidden" }}
+                                onLoad={() => {
+                                    setTimeout(() => {
+                                        document.querySelector(
+                                            ".my-pic"
+                                        ).style.visibility = "visible";
+                                    }, 2000);
+                                }}
                                 className="w-full h-full object-cover my-pic"
                             />
                         </div>
