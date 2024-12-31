@@ -22,7 +22,7 @@ const skills = [
     { name: "TypeScript", icon: <SiTypescript /> },
     { name: "React.js", icon: <SiReact /> },
     { name: "React-Router", icon: <SiReactrouter /> },
-    { name: "Redux", icon: <SiRedux /> },
+    { name: "Redux Toolkit", icon: <SiRedux /> },
     { name: "Node.js", icon: <SiNodedotjs /> },
     { name: "Express.js", icon: <SiExpress /> },
     { name: "MongoDB", icon: <SiMongodb /> },
