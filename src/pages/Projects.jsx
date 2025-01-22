@@ -3,58 +3,77 @@ import { FiGithub } from "react-icons/fi";
 import { useEffect, useRef } from "react";
 
 const projects = [
-	{
-		title: "WealthWatch",
-		description:
-			"An app that allows users to track their monthly budgets and additionally track stocks too.",
-		tech: ["Next.js", "Next-Auth", "MongoDB", "Tailwind CSS", "Chart.js"],
-		image: "/static/images/wealthwatch.png",
-		link: "https://p4-wealthwatch.vercel.app/",
-		github: "https://github.com/kavinned/wealthwatch",
-	},
-	{
-		title: "EventBunny",
-		description: (
-			<>
-				An event and task management app that users to plan events
-				collaboratively. <br />
-				<small className="text-[0.65rem]">
-					<em>
-						This project was a collaborative effort with a team of 2
-						others.
-					</em>
-				</small>
-			</>
-		),
-		tech: [
-			"React.js",
-			"Tailwind CSS",
-			"Node.js",
-			"Express.js",
-			"MongoDB",
-			"React-Router",
-		],
-		image: "/static/images/eventbunny.png",
-		link: "https://eventbunny.onrender.com/",
-		github: "https://github.com/kavinned/eventbunny",
-	},
-	{
-		title: "PokéDB",
-		description:
-			"A Pokémon database app that allows users to search and view information about different Pokémon.",
-		tech: ["React.js", "CSS3", "Airtable", "React-Router"],
-		image: "/static/images/pokedb.png",
-		link: "https://p2-poke-db.vercel.app/",
-		github: "https://github.com/kavinned/pokedb",
-	},
-	{
-		title: "Flappy Bird Clone",
-		description: "A clone of the classic game Flappy Bird.",
-		tech: ["HTML5", "CSS3", "JavaScript"],
-		image: "/static/images/flappybird.png",
-		link: "https://p1-flappy-bird.vercel.app/",
-		github: "https://github.com/kavinned/flappy-bird-clone",
-	},
+    {
+        title: "Roamify",
+        description:
+            "A comprehensive trip planner enabling users to manage travel itineraries, search destinations, and view recommended attractions and hotels.",
+        tech: [
+            "React.js",
+            "Typescript",
+            "Redux-Toolkit",
+            "React-Router",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Tailwind CSS",
+            "ShadCN/UI",
+        ],
+        image: "/static/images/roamify.png",
+        link: "https://roamify-17rg.onrender.com/",
+        github: "https://github.com/kavinned/roamify",
+    },
+    {
+        title: "WealthWatch",
+        description:
+            "An app that allows users to track their monthly budgets and additionally track stocks too.",
+        tech: ["Next.js", "Next-Auth", "MongoDB", "Tailwind CSS", "Chart.js"],
+        image: "/static/images/wealthwatch.png",
+        link: "https://p4-wealthwatch.vercel.app/",
+        github: "https://github.com/kavinned/wealthwatch",
+    },
+    {
+        title: "EventBunny",
+        description: (
+            <>
+                An event and task management app that users to plan events
+                collaboratively. <br />
+                <small className="text-[0.65rem]">
+                    <em>
+                        This project was a collaborative effort with a team of 2
+                        others.
+                    </em>
+                </small>
+            </>
+        ),
+        tech: [
+            "React.js",
+            "Tailwind CSS",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "React-Router",
+        ],
+        image: "/static/images/eventbunny.png",
+        link: "https://eventbunny.onrender.com/",
+        github: "https://github.com/kavinned/eventbunny",
+    },
+    {
+        title: "PokéDB",
+        description:
+            "A Pokémon database app that allows users to search and view information about different Pokémon.",
+        tech: ["React.js", "CSS3", "Airtable", "React-Router"],
+        image: "/static/images/pokedb.png",
+        link: "https://p2-poke-db.vercel.app/",
+        github: "https://github.com/kavinned/pokedb",
+    },
+    {
+        title: "Flappy Bird Clone",
+        description: "A clone of the classic game Flappy Bird.",
+        tech: ["HTML5", "CSS3", "JavaScript"],
+        image: "/static/images/flappybird.png",
+        link: "https://p1-flappy-bird.vercel.app/",
+        github: "https://github.com/kavinned/flappy-bird-clone",
+    },
 ];
 
 const container = {
