@@ -19,7 +19,7 @@ const projects = [
             "ShadCN/UI",
         ],
         image: "/static/images/roamify.png",
-        link: "https://roamify-17rg.onrender.com/",
+        link: "https://roamify1.vercel.app/",
         github: "https://github.com/kavinned/roamify",
     },
     {
