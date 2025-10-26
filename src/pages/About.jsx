@@ -15,11 +15,13 @@ import {
     SiVite,
     SiGit,
     SiTypescript,
+    SiPython,
 } from "react-icons/si";
 
 const skills = [
     { name: "JavaScript", icon: <SiJavascript /> },
     { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "Python", icon: <SiPython /> },
     { name: "React.js", icon: <SiReact /> },
     { name: "React-Router", icon: <SiReactrouter /> },
     { name: "Redux", icon: <SiRedux /> },
@@ -36,7 +38,7 @@ const skills = [
 ];
 
 export default function About({ name }) {
-	return (
+    return (
         <div className="container pt-20">
             <motion.div
                 initial={{ opacity: 0 }}
@@ -74,14 +76,16 @@ export default function About({ name }) {
                         animate={{ opacity: 1, x: 0 }}
                         className="space-y-4 md:order-1"
                     >
-                        <h3 className="text-2xl font-semibold mb-4">{name}</h3>
-                        <p className="text-text-secondary">
-                            I&apos;m a web developer with a focus on the
-                            front-end with some experience in the backend.
-                            Originally from a different field, I have
-                            transitioned to web development, where I&apos;ve
-                            honed my skills in HTML, CSS, and JavaScript. I also
-                            have experience with React, Node.js, and MongoDB.
+                        <h3 className="text-2xl font-bold mb-4 text-primary">
+                            {name}
+                        </h3>
+                        <p className="text-text-primary font-medium text-lg">
+                            Hi, I&apos;m Kavin, an ICT student at SUSS with an
+                            aspiration to become a web developer. I&apos;m a
+                            curious and passionate individual who enjoys
+                            bringing ideas to life through code. I love
+                            exploring new technologies and expanding my
+                            knowledge in the vast world of computing.
                         </p>
                     </motion.div>
 
