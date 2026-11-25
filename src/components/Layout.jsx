@@ -39,8 +39,8 @@ export default function Layout({ children, name }) {
 	};
 
 	useEffect(() => {
-		const closeMenu = () => {
-			if (isOpen && !menuRef.current.contains(event.target)) {
+		const closeMenu = (e) => {
+			if (isOpen && !menuRef.current.contains(e.target)) {
 				setIsOpen(false);
 			}
 		};
