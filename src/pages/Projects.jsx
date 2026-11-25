@@ -6,27 +6,37 @@ const projects = [
     {
         title: "Roamify",
         description:
-            "A comprehensive trip planner enabling users to manage travel itineraries, search destinations, and view recommended attractions and hotels.",
+            "A full-stack trip planner enabling users to search destinations and attractions, organize itineraries, and manage protected user accounts with JWT authentication.",
         tech: [
             "React.js",
-            "Typescript",
-            "Redux-Toolkit",
+            "TypeScript",
+            "Redux Toolkit",
             "React-Router",
             "Node.js",
             "Express.js",
             "MongoDB",
+            "Mongoose",
+            "JWT",
             "Tailwind CSS",
             "ShadCN/UI",
         ],
-        image: "/static/images/roamify.png",
+        image: "/static/images/roamify.webp",
         link: "https://roamify1.vercel.app/",
         github: "https://github.com/kavinned/roamify",
     },
     {
         title: "WealthWatch",
         description:
-            "An app that allows users to track their monthly budgets and additionally track stocks too.",
-        tech: ["Next.js", "Next-Auth", "MongoDB", "Tailwind CSS", "Chart.js"],
+            "A personal finance and stock portfolio tracker with expense categorization, Next-Auth/JWT authentication, and responsive Chart.js dashboards.",
+        tech: [
+            "Next.js",
+            "Next-Auth",
+            "MongoDB",
+            "Mongoose",
+            "JWT",
+            "Tailwind CSS",
+            "Chart.js",
+        ],
         image: "/static/images/wealthwatch.png",
         link: "https://p4-wealthwatch.vercel.app/",
         github: "https://github.com/kavinned/wealthwatch",
@@ -35,8 +45,8 @@ const projects = [
         title: "EventBunny",
         description: (
             <>
-                An event and task management app that users to plan events
-                collaboratively. <br />
+                An event and task management app that allows users to plan
+                events collaboratively. <br />
                 <small className="text-[0.65rem]">
                     <em>
                         This project was a collaborative effort with a team of 2
@@ -81,14 +91,23 @@ const container = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.2,
+            staggerChildren: 0.1,
         },
     },
 };
 
 const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, scale: 0.92, y: 20 },
+    show: {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+        },
+    },
 };
 
 function ProjectCard({ project }) {
