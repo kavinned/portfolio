@@ -83,12 +83,13 @@ export default function Home({ name }) {
 						</span>
 						<br className="md:block hidden" />
 						<span className="text-sky-500 md:text-5xl text-4xl">
-							Web Developer
+							Software &amp; Web Developer
 						</span>
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-						A developer with a passion for creating beautiful and
-						functional web experiences.
+						Part-time SUSS BSc ICT undergrad and AWS Certified Cloud
+						Practitioner building web applications and exploring
+						cloud &amp; software engineering.
 					</p>
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -100,17 +101,17 @@ export default function Home({ name }) {
 						}}
 						className="flex gap-6 justify-center"
 					>
-						<Link to="/contact" className="btn btn-secondary">
-							Get in touch
-						</Link>
-						<Link
-							to="/about"
-							className="btn btn-primary scale-[1.15] "
-						>
+						<Link to="/about" className="btn btn-secondary">
 							About Me
 						</Link>
-						<Link to="/projects" className="btn btn-secondary">
+						<Link
+							to="/projects"
+							className="btn btn-primary scale-[1.15]"
+						>
 							View my work
+						</Link>
+						<Link to="/contact" className="btn btn-secondary">
+							Get in touch
 						</Link>
 					</motion.div>
 				</motion.div>
