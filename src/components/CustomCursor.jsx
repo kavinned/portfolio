@@ -1,49 +1,62 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function CustomCursor() {
-	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+	const cursorRef = useRef(null);
 	const [isClick, setIsClick] = useState(false);
 
 	useEffect(() => {
-		const handleMouseMove = (e) => {
-			setMousePosition({ x: e.clientX, y: e.clientY });
+		let rafId = null;
+		let x = -9999;
+		let y = -9999;
+
+		const update = () => {
+			if (cursorRef.current) {
+				cursorRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+			}
+			rafId = null;
 		};
 
-		window.addEventListener("mousemove", handleMouseMove);
-		return () => window.removeEventListener("mousemove", handleMouseMove);
+		const handleMouseMove = (e) => {
+			x = e.clientX;
+			y = e.clientY;
+			if (rafId === null) {
+				rafId = requestAnimationFrame(update);
+			}
+		};
+
+		window.addEventListener("mousemove", handleMouseMove, { passive: true });
+		return () => {
+			window.removeEventListener("mousemove", handleMouseMove);
+			if (rafId !== null) cancelAnimationFrame(rafId);
+		};
 	}, []);
 
 	useEffect(() => {
+		let timeoutId;
 		const handleClick = () => {
 			setIsClick(true);
-			setTimeout(() => {
-				setIsClick(false);
-			}, 300);
+			clearTimeout(timeoutId);
+			timeoutId = setTimeout(() => setIsClick(false), 300);
 		};
 		document.addEventListener("click", handleClick);
-		return () => document.removeEventListener("click", handleClick);
+		return () => {
+			document.removeEventListener("click", handleClick);
+			clearTimeout(timeoutId);
+		};
 	}, []);
 
 	return (
-		<>
-			<svg
-				className="md:block hidden fixed pointer-events-none dark:opacity-[0.3] opacity-[0.5] transition-all duration-100 ease-out rounded-full blur-2xl -z-50 size-36 animate-pulse"
-				style={{
-					transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) translate(-50%, -50%)`,
-				}}
-			>
-				<circle
-					cx="72"
-					cy="72"
-					r="72"
-					className={`fill-primary ${
-						isClick
-							? "fill-red-500 blur-3xl opacity-50"
-							: "fill-primary blur-none opacity-100"
-					}`}
-				/>
-			</svg>
-		</>
+		<div
+			ref={cursorRef}
+			className="md:block hidden fixed top-0 left-0 pointer-events-none dark:opacity-[0.3] opacity-[0.5] rounded-full -z-50 size-72 will-change-transform animate-pulse"
+			style={{
+				transition: "none",
+				transform: "translate3d(-9999px, -9999px, 0) translate(-50%, -50%)",
+				background: isClick
+					? "radial-gradient(circle, rgba(239, 68, 68, 0.5) 0%, transparent 70%)"
+					: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
+			}}
+		/>
 	);
 }
 
