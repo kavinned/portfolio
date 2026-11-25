@@ -103,7 +103,7 @@ html {
 
 /* Transitions */
 * {
-    transition: all 0.3s ease-in-out, color 0s;
+    transition: all 0.2s ease-in-out, color 0s;
 }
 
 /* Media Queries */

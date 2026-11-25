@@ -52,11 +52,20 @@ function CustomCursor() {
 			style={{
 				transition: "none",
 				transform: "translate3d(-9999px, -9999px, 0) translate(-50%, -50%)",
-				background: isClick
-					? "radial-gradient(circle, rgba(239, 68, 68, 0.5) 0%, transparent 70%)"
-					: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
+				background:
+					"radial-gradient(circle, var(--primary) 0%, transparent 70%)",
 			}}
-		/>
+		>
+			<div
+				className="absolute inset-0 rounded-full"
+				style={{
+					transition: "opacity 0.2s ease-in-out",
+					opacity: isClick ? 1 : 0,
+					background:
+						"radial-gradient(circle, rgba(239, 68, 68, 0.8) 0%, transparent 70%)",
+				}}
+			/>
+		</div>
 	);
 }
 
