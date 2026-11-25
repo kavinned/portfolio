@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMail, FiMapPin, FiLinkedin } from "react-icons/fi";
+import { FiMail, FiMapPin, FiLinkedin, FiBriefcase } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
 import { useRef, useState, useEffect } from "react";
 import Toast from "../components/Toast";
@@ -18,11 +18,15 @@ const contactInfo = [
         value: "Kavin Nedumaran",
         href: "https://www.linkedin.com/in/kavin-nedumaran/",
     },
-
     {
         icon: FiMapPin,
         label: "Location",
         value: "Singapore",
+    },
+    {
+        icon: FiBriefcase,
+        label: "Availability",
+        value: "Full-Time",
     },
 ];
 
@@ -102,18 +106,26 @@ export default function Contact() {
 
                 <div className="flex md:items-start items-center gap-10 md:gap-20 justify-center md:flex-row flex-col">
                     {/* Contact Information */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="space-y-6 w-fit"
-                    >
-                        <h3 className="text-2xl font-semibold mb-4 text-center">
+                    <div className="space-y-6 w-fit">
+                        <motion.h3
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.35, ease: "easeOut" }}
+                            className="text-2xl font-semibold mb-4 text-center"
+                        >
                             Contact Information
-                        </h3>
-                        {contactInfo.map((item) => (
-                            <div
+                        </motion.h3>
+                        {contactInfo.map((item, idx) => (
+                            <motion.div
                                 key={item.label}
+                                initial={{ opacity: 0, y: 14 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 260,
+                                    damping: 22,
+                                    delay: 0.1 + idx * 0.08,
+                                }}
                                 className="flex items-center space-x-4"
                             >
                                 <item.icon className="text-2xl text-primary" />
@@ -134,9 +146,9 @@ export default function Contact() {
                                         </p>
                                     )}
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </motion.div>
+                    </div>
 
                     {/* Contact Form */}
                     {/* <motion.div
